@@ -16,5 +16,6 @@ export default defineConfig({
       },
     ],
   ],
+  publicPath: process.env.NODE_ENV === 'production' ? '/react-hook-form-with-antd/' : '/',
   // more config: https://d.umijs.org/config
 });
