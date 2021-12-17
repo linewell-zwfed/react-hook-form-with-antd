@@ -4,11 +4,14 @@
 
 使用该组件前，请先熟悉如何使用 [react-hook-form](https://react-hook-form.com/get-started#Quickstart)。
 
-## 安装
+## 快速上手
+
+### 安装
 ```bash
 yarn add react-hook-form-with-antd -D
 ```
 
+### 使用
 ```jsx | pure
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -30,5 +33,7 @@ const App = () => {
     </PureFormItem>
   </Form>
 }
-
 ```
+## 文档
+[组件文档](/src/index.md)
+
