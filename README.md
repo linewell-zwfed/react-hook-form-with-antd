@@ -7,33 +7,44 @@
 ## 快速上手
 
 ### 安装
+
 ```bash
 yarn add react-hook-form-with-antd -D
 ```
 
 ### 使用
+
 ```jsx | pure
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Input, Button } from 'antd';
 import { Form, FormItem, PureFormItem } from 'react-hook-form-with-antd';
 
-
 const App = () => {
   const { control, handleSubmit } = useForm({
     mode: 'onChange',
   });
 
-  return <Form>
-    <FormItem label="姓名" name="name" requried control={control} labelCol={{span: 4}} wrapperCol={{span: 20}}>
-      <Input />
-    </FormItem>
-    <PureFormItem wrapperCol={{span: 20, offset: 4}}>
-      <Button onClick={handleSubmit(data => console.log('data', data))}>保存</Button>
-    </PureFormItem>
-  </Form>
-}
+  return (
+    <Form>
+      <FormItem
+        label="姓名"
+        name="name"
+        requried
+        control={control}
+        labelCol={{ span: 4 }}
+        wrapperCol={{ span: 20 }}
+      >
+        <Input />
+      </FormItem>
+      <PureFormItem wrapperCol={{ span: 20, offset: 4 }}>
+        <Button onClick={handleSubmit((data) => console.log('data', data))}>保存</Button>
+      </PureFormItem>
+    </Form>
+  );
+};
 ```
-## 文档
-[组件文档](/src/index.md)
 
+## 文档
+
+https://linewell-zwfed.github.io/react-hook-form-with-antd/
