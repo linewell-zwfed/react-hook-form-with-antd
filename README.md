@@ -48,3 +48,7 @@ const App = () => {
 ## 文档
 
 https://linewell-zwfed.github.io/react-hook-form-with-antd/
+
+## 更新日志
+
+[CHANGELOG](/CHANGELOG.md)

@@ -80,6 +80,7 @@ FormItem 将根据 react-hook-form 的表单状态，自动设置 antd Form.Item
 | name | 用于 react-hook-form，作为表单值的 key | string | 必填 | - |
 | control | react-hook-form 中会使用到的 control | ControllerProps['control'] | 必填 | - |
 | rules | react-hook-form 中会使用到的 rules，具体设置参考[react-hook-form 文档](https://react-hook-form.com/get-started#Applyvalidation) | ControllerProps['rules'] | 必填 | - |
+| defaultValue | 表单项的默认值 | ControllerProps['defaultValue'] | 非必填 | - |
 | label | 同 [antd Form.Item](https://ant-design-3x.gitee.io/components/form-cn/#Form.Item) 的 label 属性一致 | React.ReactNode | 非必填 | - |
 | labelText | 用于 placeholder 及 required 中的提示文本 | string | 非必填 | 默认值为 等于 label 设置的值 |
 | labelCol | 同 [antd Form.Item](https://ant-design-3x.gitee.io/components/form-cn/#Form.Item) 的 labelCol 属性一致。<br/> label 标签布局，同 \<Col\> 组件，设置 span offset 值，如 {span: 3, offset: 12} 或 sm: {span: 3, offset: 12}。在 3.14.0 之后，你可以通过 Form 的 labelCol 进行统一设置。当和 Form 同时设置时，以 FormItem 为准。 | object | 非必填 | - |

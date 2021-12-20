@@ -1,6 +1,6 @@
 {
   "name": "react-hook-form-with-antd",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -10,7 +10,9 @@
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "changelog:create": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "module": "es/index.js",
   "typings": "es/index.d.ts",
@@ -33,6 +35,7 @@
     "@umijs/test": "^3.0.5",
     "antd": "3",
     "babel-plugin-import": "1.13.3",
+    "conventional-changelog-cli": "2.0.34",
     "dumi": "^1.1.0",
     "father-build": "^1.17.2",
     "gh-pages": "^3.0.0",
