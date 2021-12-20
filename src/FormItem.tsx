@@ -9,6 +9,7 @@ export interface HooksFormItemProps extends FormItemProps {
   control: ControllerProps<any>['control'];
   rules?: ControllerProps['rules'];
   labelText?: string;
+  defaultValue: ControllerProps['defaultValue'];
 }
 
 // 如果直接赋值给 FormItem, 会导致 FormItem 里头 labelCol in props 的逻辑判断为 true， 从而使设置的布局未生效
@@ -85,6 +86,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
   const {
     name,
     control,
+    defaultValue,
     label,
     labelText = label,
     labelCol,
@@ -109,11 +111,15 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
     name,
     control,
     rules: rulesProp,
+    defaultValue,
   });
 
   const validateStatus = getValidateStatus(fieldState);
   const help = getHelpMessage(fieldState);
-  const placeholder = getPlaceholder({ metadata: props.children as React.ReactElement, labelText: labelText as string });
+  const placeholder = getPlaceholder({
+    metadata: props.children as React.ReactElement,
+    labelText: labelText as string,
+  });
 
   return (
     <Form.Item
