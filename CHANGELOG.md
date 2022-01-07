@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.3.0...1.3.1) (2022-01-07)
+
+### Bug Fixes
+
+- 修改 getValueFromEvent 的类型定义 ([464c3df](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/464c3df3e3b12d4709aa8a0ed4f0cbbb312f6f79))
+
 # [1.3.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.2.1...1.3.0) (2022-01-07)
 
 ### Features
