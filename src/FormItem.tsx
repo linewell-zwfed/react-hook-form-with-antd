@@ -14,7 +14,7 @@ export interface HooksFormItemProps extends FormItemProps {
   defaultValue?: ControllerProps['defaultValue'];
   valuePropName?: string;
   trigger?: string;
-  getValueFromEvent?: (event: any) => string;
+  getValueFromEvent?: (event: any) => any;
 }
 
 // 如果直接赋值给 FormItem, 会导致 FormItem 里头 labelCol in props 的逻辑判断为 true， 从而使设置的布局未生效
