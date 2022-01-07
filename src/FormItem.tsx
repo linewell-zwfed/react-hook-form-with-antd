@@ -4,12 +4,17 @@ import { useController, ControllerProps, ControllerFieldState } from 'react-hook
 
 import { FormItemProps } from 'antd/es/form';
 
+import { isFalsy, warning } from './utils';
+
 export interface HooksFormItemProps extends FormItemProps {
   name: ControllerProps['name'];
   control: ControllerProps<any>['control'];
   rules?: ControllerProps['rules'];
   labelText?: string;
   defaultValue?: ControllerProps['defaultValue'];
+  valuePropName?: string;
+  trigger?: string;
+  getValueFromEvent?: (event: any) => string;
 }
 
 // 如果直接赋值给 FormItem, 会导致 FormItem 里头 labelCol in props 的逻辑判断为 true， 从而使设置的布局未生效
@@ -73,7 +78,7 @@ const getPlaceholder = ({
   metadata: React.ReactElement;
   labelText: string;
 }) => {
-  if (metadata?.props.placeholder) return metadata?.props.placeholder;
+  if (!isFalsy(metadata?.props.placeholder)) return metadata?.props.placeholder;
 
   if (typeof metadata?.type === 'function' && ['select', 'Select'].includes(metadata?.type?.name)) {
     return `请选择${labelText}`;
@@ -96,6 +101,9 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
     required,
     hasFeedback,
     style,
+    valuePropName = 'value',
+    trigger = 'onChange',
+    getValueFromEvent,
   } = props;
 
   const layoutProps = getLayoutProps({ labelCol, wrapperCol, labelAlign });
@@ -103,9 +111,10 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
   const isRequired = required || Object.keys(rules).includes('required');
   const rulesProp = getRules(rules, { required, label: labelText as string });
 
-  if (React.isValidElement(label)) {
-    console.warn('label 被设置为 ReactElement, 请另外设置 labelText 以保证校验提示本文的正确性');
-  }
+  warning(
+    React.isValidElement(label) && typeof labelText !== 'string',
+    'label 被设置为 ReactElement, 请正确设置 labelText 为[纯文本 string]以保证校验提示本文的正确性',
+  );
 
   const { field, fieldState } = useController({
     name,
@@ -121,6 +130,19 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
     labelText: labelText as string,
   });
 
+  const proxyProps = {
+    [valuePropName]: field.value,
+    [trigger]: (event: any) => {
+      let value = event;
+
+      if (getValueFromEvent) {
+        value = getValueFromEvent(event);
+      }
+
+      field.onChange(value);
+    },
+  };
+
   return (
     <Form.Item
       label={label}
@@ -133,6 +155,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
     >
       {React.cloneElement(props.children as React.ReactElement, {
         ...field,
+        ...proxyProps,
         placeholder,
       })}
     </Form.Item>
