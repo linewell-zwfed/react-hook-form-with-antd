@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.2.1...1.3.0) (2022-01-07)
+
+### Features
+
+- 新增 PlainText 组件 ([dac5af5](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/dac5af5862653584c3d17cae2c60c5b95f01f44c))
+- 新增 valuePropName、trigger、getValueFromEvent 及允许 placeholder 为空的设置 ([bb17e0c](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/bb17e0c830a5367648d0b581e22443d340158819))
+
 ## 1.2.1 (2021-12-22)
 
 ### Bug Fixes
