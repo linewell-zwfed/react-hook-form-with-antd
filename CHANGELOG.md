@@ -1,3 +1,9 @@
+# [1.4.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.3.1...1.4.0) (2022-01-13)
+
+### Features
+
+- 新增 extra 和 colon 配置属性 ([1626666](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/162666681f57d009250a611a440d79d0199148e6))
+
 ## [1.3.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.3.0...1.3.1) (2022-01-07)
 
 ### Bug Fixes
