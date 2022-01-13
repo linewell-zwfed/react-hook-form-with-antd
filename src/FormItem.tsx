@@ -104,6 +104,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
     valuePropName = 'value',
     trigger = 'onChange',
     getValueFromEvent,
+    ...antdProps
   } = props;
 
   const layoutProps = getLayoutProps({ labelCol, wrapperCol, labelAlign });
@@ -145,6 +146,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
 
   return (
     <Form.Item
+      {...antdProps}
       label={label}
       required={isRequired}
       validateStatus={validateStatus}

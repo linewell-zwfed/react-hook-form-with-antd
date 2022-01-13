@@ -83,6 +83,8 @@ FormItem 将根据 react-hook-form 的表单状态，自动设置 antd Form.Item
 | name | 用于 react-hook-form，作为表单值的 key | string | 必填 | - |
 | control | react-hook-form 中会使用到的 control | ControllerProps['control'] | 必填 | - |
 | rules | react-hook-form 中会使用到的 rules，具体设置参考[react-hook-form 文档](https://react-hook-form.com/get-started#Applyvalidation) | ControllerProps['rules'] | 必填 | - |
+| colon | 配合 label 属性使用，表示是否显示 label 后面的冒号 | boolean | 非必填 | true |
+| extra | 额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string\|ReactNode | 非必填 | - |
 | defaultValue | 表单项的默认值 | ControllerProps['defaultValue'] | 非必填 | - |
 | label | 同 [antd Form.Item](https://ant-design-3x.gitee.io/components/form-cn/#Form.Item) 的 label 属性一致 | React.ReactNode | 非必填 | - |
 | labelText | 用于 placeholder 及 required 中的提示文本 | string | 非必填 | 默认值为 等于 label 设置的值 |
