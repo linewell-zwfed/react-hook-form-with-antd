@@ -12,7 +12,7 @@ sidemenu: false
 ## 安装
 
 ```bash
-yarn add react-hook-form-with-antd -D
+yarn add react-hook-form-with-antd -E
 ```
 
 ```jsx | pure

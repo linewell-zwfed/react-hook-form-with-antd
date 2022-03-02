@@ -9,7 +9,7 @@
 ### 安装
 
 ```bash
-yarn add react-hook-form-with-antd -D
+yarn add react-hook-form-with-antd -E
 ```
 
 ### 使用
