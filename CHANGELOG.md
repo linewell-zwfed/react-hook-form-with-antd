@@ -1,3 +1,9 @@
+# [1.5.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.4.0...1.5.0) (2022-03-11)
+
+### Features
+
+- 允许代理的表单控件额外指定 [triggerValue] 方法 ([db86e8a](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/db86e8a064f7d62fb111c2a3f3d773c8cbafdce5))
+
 ## [1.4.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.4.0...1.4.1) (2022-03-11)
 
 ### Bug Fixes
