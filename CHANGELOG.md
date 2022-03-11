@@ -1,3 +1,9 @@
+# [1.6.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.5.0...1.6.0) (2022-03-11)
+
+### Features
+
+- plaintext 组件新增 placeholder 和 hidePlaceholder 属性 ([4741c89](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/4741c8933cf353554d6eba73aa8fa80abe40c09a))
+
 # [1.5.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.4.0...1.5.0) (2022-03-11)
 
 ### Features
