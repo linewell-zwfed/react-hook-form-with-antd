@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { Form } from 'antd';
 import { useController, ControllerProps, ControllerFieldState } from 'react-hook-form';
 
 import { FormItemProps } from 'antd/es/form';
 
 import { isFalsy, warning } from './utils';
+
+type ChildrenComponentType = 'select' | 'input' | '';
 
 export interface HooksFormItemProps extends FormItemProps {
   name: ControllerProps['name'];
@@ -73,14 +76,16 @@ const getHelpMessage = (fieldState: ControllerFieldState) => {
 
 const getPlaceholder = ({
   metadata,
+  componentType,
   labelText,
 }: {
   metadata: React.ReactElement;
+  componentType: ChildrenComponentType;
   labelText: string;
 }) => {
   if (!isFalsy(metadata?.props.placeholder)) return metadata?.props.placeholder;
 
-  if (typeof metadata?.type === 'function' && ['select', 'Select'].includes(metadata?.type?.name)) {
+  if (componentType === 'select') {
     return `请选择${labelText}`;
   }
 
@@ -107,6 +112,14 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
     ...antdProps
   } = props;
 
+  /**
+   * 为了解决在生产环境无法正确判断children的组件名称这个问题，
+   * 改用判断formitem下的DOM节点是否包含了特定的classname，
+   * 这边要注意不应该去设置 children的 ref，因为外部可能还会设置ref属性，所以这边通过设置 formitem 的 ref
+   */
+  const formItemRef = useRef();
+  const [childrenComponentType, setChildrenComponentType] = useState<ChildrenComponentType>('');
+
   const layoutProps = getLayoutProps({ labelCol, wrapperCol, labelAlign });
 
   const isRequired = required || Object.keys(rules).includes('required');
@@ -116,6 +129,21 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
     React.isValidElement(label) && typeof labelText !== 'string',
     'label 被设置为 ReactElement, 请正确设置 labelText 为[纯文本 string]以保证校验提示本文的正确性',
   );
+
+  useEffect(() => {
+    const dom = ReactDOM.findDOMNode(formItemRef.current) as Element;
+    const selectNodelist = dom.querySelectorAll('.ant-select');
+
+    switch (true) {
+      case selectNodelist.length > 0:
+        setChildrenComponentType('select');
+        break;
+
+      default:
+        setChildrenComponentType('');
+        break;
+    }
+  }, []);
 
   const { field, fieldState } = useController({
     name,
@@ -128,6 +156,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
   const help = getHelpMessage(fieldState);
   const placeholder = getPlaceholder({
     metadata: props.children as React.ReactElement,
+    componentType: childrenComponentType,
     labelText: labelText as string,
   });
 
@@ -154,6 +183,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
       hasFeedback={hasFeedback}
       {...layoutProps}
       style={style}
+      ref={formItemRef}
     >
       {React.cloneElement(props.children as React.ReactElement, {
         ...field,
