@@ -107,7 +107,7 @@ const Demo = () => {
           extra="表单控件也可以指定额外的 [triggerValue] 事件，比如这边额外指定了 Select 的 onChange 事件"
         >
           <Select
-            onChange={(val) => {
+            onChange={(val, a) => {
               triggerMethodTip(val === 'POST');
             }}
           >

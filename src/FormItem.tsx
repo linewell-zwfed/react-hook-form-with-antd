@@ -162,7 +162,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
 
   const proxyProps = {
     [valuePropName]: field.value,
-    [trigger]: (event: any) => {
+    [trigger](event: any) {
       let value = event;
 
       if (getValueFromEvent) {
@@ -174,7 +174,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
       // @ts-expect-error
       if (props.children?.props?.[trigger]) {
         // @ts-expect-error
-        props.children!.props[trigger](event);
+        props.children!.props[trigger](...arguments);
       }
     },
   };
