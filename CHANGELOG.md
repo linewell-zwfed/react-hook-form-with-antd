@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.4.0...1.4.1) (2022-03-11)
+
+### Bug Fixes
+
+- 修复生产环境无法正确判断组件类型的问题 ([7c97804](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/7c97804af8ab8d71568a9760e2abdd6e5e9bd719))
+
 # [1.4.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.3.1...1.4.0) (2022-01-13)
 
 ### Features
