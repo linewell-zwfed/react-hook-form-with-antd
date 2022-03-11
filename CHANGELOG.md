@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.6.1) (2022-03-11)
+
+### Bug Fixes
+
+- 修复表单 [triggerValue] 方法形参丢失的问题 ([b32b847](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/b32b8474a2f8b30349c026e11cc045f4f76fc26e))
+
 # [1.6.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.5.0...1.6.0) (2022-03-11)
 
 ### Features
