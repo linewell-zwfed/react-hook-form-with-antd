@@ -31,6 +31,7 @@ const formItemLayout = {
 
 const Demo = () => {
   const [formValue, setFormValue] = useState({});
+  const [showMethodTip, triggerMethodTip] = useState(false);
 
   const { control, handleSubmit } = useForm({
     mode: 'onChange',
@@ -98,12 +99,28 @@ const Demo = () => {
           </div>
         </PureFormItem>
 
-        <FormItem label="调用方式" name="method" control={control} required>
-          <Select>
+        <FormItem
+          label="调用方式"
+          name="method"
+          control={control}
+          required
+          extra="表单控件也可以指定额外的 [triggerValue] 事件，比如这边额外指定了 Select 的 onChange 事件"
+        >
+          <Select
+            onChange={(val) => {
+              triggerMethodTip(val === 'POST');
+            }}
+          >
             <Select.Option value="GET">GET</Select.Option>
             <Select.Option value="POST">POST</Select.Option>
           </Select>
         </FormItem>
+
+        {showMethodTip && (
+          <FormItem label="注意" name="methodTip" control={control} defaultValue="你选择了POST方式">
+            <PlainText />
+          </FormItem>
+        )}
 
         <PureFormItem label="参数列表">
           <Table bordered dataSource={fields} pagination={false} size="middle" rowKey="id">

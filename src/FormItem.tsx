@@ -170,6 +170,12 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
       }
 
       field.onChange(value);
+
+      // @ts-expect-error
+      if (props.children?.props?.[trigger]) {
+        // @ts-expect-error
+        props.children!.props[trigger](event);
+      }
     },
   };
 
