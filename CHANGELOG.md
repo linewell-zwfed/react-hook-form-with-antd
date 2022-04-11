@@ -1,3 +1,9 @@
+# [1.7.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.7.0) (2022-04-11)
+
+### Bug Fixes
+
+- 手动引入 form 样式 ([7423bf6](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/7423bf606af98452552f19e821746d7bbe99120f))
+
 ## [1.6.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.6.1) (2022-03-11)
 
 ### Bug Fixes
