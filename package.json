@@ -45,12 +45,14 @@
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
     "react": "16",
+    "react-dom": "16",
     "react-hook-form": "7",
     "yorkie": "^2.0.0"
   },
   "peerDependencies": {
     "antd": ">=3.0.0",
     "react": ">=16.0.0",
+    "react-dom": ">=16.0.0",
     "react-hook-form": ">=7.0.0"
   }
 }
