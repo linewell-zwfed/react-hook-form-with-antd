@@ -1,3 +1,9 @@
+## [1.7.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.7.1) (2022-05-17)
+
+### Bug Fixes
+
+- 修复动态修改 required 未正确移除 rules 的问题 ([f50a360](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/f50a360f39aa6d0584de8b2c63493369804183e1))
+
 # [1.7.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.7.0) (2022-04-11)
 
 ### Bug Fixes
