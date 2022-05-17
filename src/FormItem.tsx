@@ -52,7 +52,7 @@ const getRules = (
       newRules.required = `${options?.label}不能为空`;
     }
   } else {
-    delete newRules.required;
+    newRules.required = false;
   }
 
   return newRules;
