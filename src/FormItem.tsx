@@ -51,6 +51,8 @@ const getRules = (
     } else {
       newRules.required = `${options?.label}不能为空`;
     }
+  } else {
+    delete newRules.required;
   }
 
   return newRules;
