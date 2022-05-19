@@ -1,3 +1,9 @@
+# [1.8.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.8.0) (2022-05-19)
+
+### Features
+
+- 新增 shouldUnregister 选项 ([c148bc3](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/c148bc35eb3ffb7f8dd7d7ad5a149a3524e2079b))
+
 ## [1.7.2](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.7.2) (2022-05-17)
 
 ### Bug Fixes
