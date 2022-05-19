@@ -15,6 +15,7 @@ export interface HooksFormItemProps extends FormItemProps {
   rules?: ControllerProps['rules'];
   labelText?: string;
   defaultValue?: ControllerProps['defaultValue'];
+  shouldUnregister?: ControllerProps['shouldUnregister'];
   valuePropName?: string;
   trigger?: string;
   getValueFromEvent?: (event: any) => any;
@@ -99,6 +100,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
     name,
     control,
     defaultValue,
+    shouldUnregister = false,
     label,
     labelText = label,
     labelCol,
@@ -152,6 +154,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
     control,
     rules: rulesProp,
     defaultValue,
+    shouldUnregister,
   });
 
   const validateStatus = getValidateStatus(fieldState);
