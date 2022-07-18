@@ -1,6 +1,6 @@
 {
   "name": "@kmfb/react-hook-form-with-antd",
-  "version": "1.7.0",
+  "version": "1.0.0",
   "scripts": {
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
