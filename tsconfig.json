@@ -1,13 +1,21 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "jsx": "react",
+    // Default
+    "target": "es2016",
     "esModuleInterop": true,
-    "types": ["jest"],
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "declaration": true
+
+    // Added
+    "jsx": "react",
+    "module": "ESNext",
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true
   }
 }

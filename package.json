@@ -1,58 +1,25 @@
 {
   "name": "react-hook-form-with-antd",
   "version": "1.7.0",
-  "files": [
-    "es"
-  ],
   "scripts": {
-    "start": "dumi dev",
-    "docs:build": "dumi build",
-    "docs:deploy": "gh-pages -d docs-dist",
-    "build": "father-build",
-    "deploy": "npm run docs:build && npm run docs:deploy",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
-    "test": "umi-test",
-    "test:coverage": "umi-test --coverage",
-    "prepublishOnly": "npm run build",
-    "changelog:create": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "rollup": "rollup -c"
   },
-  "module": "es/index.js",
-  "typings": "es/index.d.ts",
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
-      "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write"
-    ]
-  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.15.1",
-    "@testing-library/react": "^12.1.2",
-    "@types/jest": "^27.0.3",
-    "@umijs/fabric": "^2.8.1",
-    "@umijs/test": "^3.0.5",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "@types/react": "16",
+    "@types/react-dom": "16",
     "antd": "3",
-    "babel-plugin-import": "1.13.3",
-    "conventional-changelog-cli": "2.0.34",
-    "dumi": "^1.1.0",
-    "father-build": "^1.17.2",
-    "gh-pages": "^3.0.0",
-    "lint-staged": "^10.0.7",
-    "prettier": "^2.2.1",
     "react": "16",
     "react-dom": "16",
     "react-hook-form": "7",
-    "yorkie": "^2.0.0"
-  },
-  "peerDependencies": {
-    "antd": ">=3.0.0",
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0",
-    "react-hook-form": ">=7.0.0"
+    "rollup": "^2.77.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-import-css": "^3.0.3",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
   }
 }
