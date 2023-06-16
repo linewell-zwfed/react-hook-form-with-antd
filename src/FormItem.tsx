@@ -47,9 +47,7 @@ const getRules = (
   let newRules = { ...rules };
 
   if (options?.required) {
-    if (typeof options?.required === 'string') {
-      newRules.required = options.required;
-    } else {
+    if (typeof rules?.required === 'undefined') {
       newRules.required = `${options?.label}不能为空`;
     }
   } else {
