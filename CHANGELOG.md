@@ -1,3 +1,9 @@
+## [1.8.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.8.1) (2023-06-16)
+
+### Bug Fixes
+
+- 调整自定义 require message 设置方式统一由 rules 设置 ([a65345d](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/a65345dd37da6e35214c2a414bd6a4d83f989106))
+
 # [1.8.0](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.8.0) (2022-05-19)
 
 ### Features
