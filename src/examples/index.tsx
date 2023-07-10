@@ -64,10 +64,10 @@ const Demo = () => {
           required
           rules={{
             validate: {
-              aaa: (val) => {
+              aaa: (val: string) => {
                 if (val.length > 5) return `你的字太多了`;
               },
-              bbb: (val) => {
+              bbb: (val: string) => {
                 if (val === 'bbb') return `你的字是bbb`;
               },
             },
