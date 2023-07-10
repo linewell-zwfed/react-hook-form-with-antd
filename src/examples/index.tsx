@@ -62,6 +62,36 @@ const Demo = () => {
           name="componentName"
           control={control}
           required
+          rules={{
+            validate: {
+              aaa: (val) => {
+                if (val.length > 5) return `你的字太多了`;
+              },
+              bbb: (val) => {
+                if (val === 'bbb') return `你的字是bbb`;
+              },
+            },
+          }}
+        >
+          <Input placeholder="" />
+        </FormItem>
+
+        <FormItem
+          label={
+            <span>
+              组件名称&nbsp;
+              <Tooltip title="代理的表单组件 placeholder 设为空字符串可以不显示 placeholder">
+                <Icon type="question-circle-o" />
+              </Tooltip>
+            </span>
+          }
+          labelText="组件名称2"
+          name="componentName2"
+          control={control}
+          required
+          rules={{
+            whitespace: false,
+          }}
         >
           <Input placeholder="" />
         </FormItem>

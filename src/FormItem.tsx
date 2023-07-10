@@ -9,10 +9,21 @@ import { isFalsy, warning } from './utils';
 
 type ChildrenComponentType = 'select' | 'input' | '';
 
+type CustomRules = ControllerProps['rules'] & { whitespace?: boolean };
+
+const RULES_WHITESPACE = 'whitespace';
+
+function createWhitepsaceValidate(label: string) {
+  return function whitepsaceValidate(val: any) {
+    if (typeof val === 'string' && val.trim() === '') return `${label || '内容'}不能为空`;
+    return true;
+  };
+}
+
 export interface HooksFormItemProps extends FormItemProps {
   name: ControllerProps['name'];
   control: ControllerProps<any>['control'];
-  rules?: ControllerProps['rules'];
+  rules?: CustomRules;
   labelText?: string;
   defaultValue?: ControllerProps['defaultValue'];
   shouldUnregister?: ControllerProps['shouldUnregister'];
@@ -40,18 +51,38 @@ const getLayoutProps = ({ labelAlign, labelCol, wrapperCol }: any) => {
   return layoutProps;
 };
 
-const getRules = (
-  rules: ControllerProps['rules'],
-  options: { required?: boolean | string; label: string },
-) => {
+const getRules = (rules: CustomRules, options: { required?: boolean | string; label: string }) => {
   let newRules = { ...rules };
 
-  if (options?.required) {
-    if (typeof rules?.required === 'undefined') {
-      newRules.required = `${options?.label}不能为空`;
-    }
+  let isWhitespace = rules?.whitespace ?? true;
+
+  if (typeof rules.validate === 'function') {
+    newRules.validate = {
+      defaultValidate: rules.validate,
+    };
+  } else if (typeof rules.validate === 'object' && Object.keys(rules.validate).length) {
+    warning(
+      Object.keys(rules.validate).findIndex((key) => key === RULES_WHITESPACE) > -1,
+      '发现您设置了validate.whitespace 校验器，跟内置的 whitespace 有冲突，请更换该校验器名称',
+    );
   } else {
-    newRules.required = false;
+    newRules.validate = {};
+  }
+
+  // 判断用户是否单独设置了 rules.required
+  // 判断用户是否设置了 whitespace
+  if (typeof rules?.required === 'undefined') {
+    if (options?.required) {
+      newRules.required = `${options?.label}不能为空`;
+
+      if (isWhitespace) {
+        // @ts-ignore
+        newRules.validate['whitepsace'] = createWhitepsaceValidate(options?.label);
+      }
+    }
+  } else if (isWhitespace) {
+    // @ts-ignore
+    newRules.validate['whitepsace'] = createWhitepsaceValidate(options?.label);
   }
 
   return newRules;
