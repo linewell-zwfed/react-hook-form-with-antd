@@ -226,7 +226,6 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
       ref={formItemRef}
     >
       {React.cloneElement(props.children as React.ReactElement, {
-        ...field,
         ...proxyProps,
         placeholder,
       })}

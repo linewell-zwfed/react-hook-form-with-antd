@@ -53,7 +53,7 @@ const Demo = () => {
           label={
             <span>
               组件名称&nbsp;
-              <Tooltip title="代理的表单组件 placeholder 设为空字符串可以不显示 placeholder">
+              <Tooltip title="rules 支持 whitespace">
                 <Icon type="question-circle-o" />
               </Tooltip>
             </span>
