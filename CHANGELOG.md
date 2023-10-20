@@ -1,3 +1,18 @@
+## [1.9.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.9.1) (2023-10-20)
+
+### Bug Fixes
+
+- 调整自定义 require message 设置方式统一由 rules 设置 ([a65345d](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/a65345dd37da6e35214c2a414bd6a4d83f989106))
+- 手动引入 form 样式 ([7423bf6](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/7423bf606af98452552f19e821746d7bbe99120f))
+- 修复 formitem 的 children 的 ref 属性丢失的问题 ([851a646](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/851a64632cf4294dae7cf33b296cea06ce2bc91a))
+- 修复表单 [triggerValue] 方法形参丢失的问题 ([b32b847](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/b32b8474a2f8b30349c026e11cc045f4f76fc26e))
+- 修复动态修改 required 未正确移除 rules 的问题 ([7ad1b4a](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/7ad1b4a8ed9470c3249e437c3924167caa223288))
+
+### Features
+
+- 新增 shouldUnregister 选项 ([c148bc3](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/c148bc35eb3ffb7f8dd7d7ad5a149a3524e2079b))
+- rules 扩展了 whitespace 配置，支持在 required 的情形下校验是否为非空格字符串 ([d11c623](https://github.com/linewell-zwfed/react-hook-form-with-antd/commit/d11c623c74c6c6f123bc57962fae813e61ba5997))
+
 ## [1.8.1](https://github.com/linewell-zwfed/react-hook-form-with-antd/compare/1.6.0...1.8.1) (2023-06-16)
 
 ### Bug Fixes

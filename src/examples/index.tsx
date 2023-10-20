@@ -288,7 +288,7 @@ const Demo = () => {
           />
         </FormItem>
 
-        <FormItem label="Slider" name="Slider" control={control} defaultValue={['A', 'B']}>
+        <FormItem label="Slider" name="Checkbox" control={control} defaultValue={['A', 'B']}>
           <Checkbox.Group style={{ width: '100%' }}>
             <Row>
               <Col span={8}>
