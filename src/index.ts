@@ -1,5 +1,3 @@
-import 'antd/es/form/style/css';
-
 export { default as Form } from './Form';
 export { default as FormItem, PureFormItem } from './FormItem';
 
