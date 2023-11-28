@@ -1,3 +1,4 @@
+import I18N from './i18n';
 import React, { useRef, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Form } from 'antd';
@@ -15,7 +16,8 @@ const RULES_WHITESPACE = 'whitespace';
 
 function createWhitepsaceValidate(label: string) {
   return function whitepsaceValidate(val: any) {
-    if (typeof val === 'string' && val.trim() === '') return `${label || '内容'}不能为空`;
+    if (typeof val === 'string' && val.trim() === '')
+      return (label || I18N.src.FormItem.neiRong) + I18N.src.FormItem.buNengWeiKong;
     return true;
   };
 }
@@ -63,7 +65,7 @@ const getRules = (rules: CustomRules, options: { required?: boolean | string; la
   } else if (typeof rules.validate === 'object' && Object.keys(rules.validate).length) {
     warning(
       Object.keys(rules.validate).findIndex((key) => key === RULES_WHITESPACE) > -1,
-      '发现您设置了validate.whitespace 校验器，跟内置的 whitespace 有冲突，请更换该校验器名称',
+      I18N.src.FormItem.faXianNinSheZhi,
     );
   } else {
     newRules.validate = {};
@@ -73,7 +75,7 @@ const getRules = (rules: CustomRules, options: { required?: boolean | string; la
   // 判断用户是否设置了 whitespace
   if (typeof rules?.required === 'undefined') {
     if (options?.required) {
-      newRules.required = `${options?.label}不能为空`;
+      newRules.required = I18N.template(I18N.src.FormItem.oPTIO, { val1: options?.label });
 
       if (isWhitespace) {
         // @ts-ignore
@@ -118,10 +120,10 @@ const getPlaceholder = ({
   if (!isFalsy(metadata?.props.placeholder)) return metadata?.props.placeholder;
 
   if (componentType === 'select') {
-    return `请选择${labelText}`;
+    return I18N.template(I18N.src.FormItem.qingXuanZeLA, { val1: labelText });
   }
 
-  return `请输入${labelText}`;
+  return I18N.template(I18N.src.FormItem.qingShuRuLA, { val1: labelText });
 };
 
 const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
@@ -158,10 +160,7 @@ const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {
   const isRequired = required || Object.keys(rules).includes('required');
   const rulesProp = getRules(rules, { required, label: labelText as string });
 
-  warning(
-    React.isValidElement(label) && typeof labelText !== 'string',
-    'label 被设置为 ReactElement, 请正确设置 labelText 为[纯文本 string]以保证校验提示本文的正确性',
-  );
+  warning(React.isValidElement(label) && typeof labelText !== 'string', I18N.src.FormItem.lABEL);
 
   useEffect(() => {
     const dom = ReactDOM.findDOMNode(formItemRef.current) as Element;

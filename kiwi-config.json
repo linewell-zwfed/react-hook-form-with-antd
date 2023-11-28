@@ -1,0 +1,21 @@
+{
+  "kiwiDir": "./src/.kiwi",
+  "srcLang": "zh-CN",
+  "distLangs": ["en-US"],
+  "googleApiKey": "",
+  "baiduApiKey": {
+    "appId": "20220816001309095",
+    "appKey": "8sLpRtuDSBt14p9CZvGK"
+  },
+  "baiduLangMap": {
+    "en-US": "en"
+  },
+  "translateOptions": {
+    "concurrentLimit": 10,
+    "requestOptions": {}
+  },
+  "defaultTranslateKeyApi": "Pinyin",
+  "importI18N": "import I18N from './i18n';",
+  "ignoreDir": ["src/.kiwi", "src/examples", ".umi", ".umi-production"],
+  "ignoreFile": []
+}

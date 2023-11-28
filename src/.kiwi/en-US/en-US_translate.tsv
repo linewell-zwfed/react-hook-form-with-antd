@@ -1,0 +1,7 @@
+src.FormItem.lABEL	The label is set to ReactElement. Please correctly set the labelText to [plain text string] to ensure the correctness of the verification prompt in this article
+src.FormItem.qingShuRuLA	Please enter {val1}
+src.FormItem.qingXuanZeLA	Please select {val1}
+src.FormItem.oPTIO	{val1} cannot be empty
+src.FormItem.faXianNinSheZhi	I found that you have set the validate.whitespace validator, which conflicts with the built-in whitespace. Please change the name of the validator
+src.FormItem.buNengWeiKong	Cannot be empty
+src.FormItem.neiRong	Content
