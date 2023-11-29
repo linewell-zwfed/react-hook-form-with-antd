@@ -75,7 +75,7 @@ const getRules = (rules: CustomRules, options: { required?: boolean | string; la
   // 判断用户是否设置了 whitespace
   if (typeof rules?.required === 'undefined') {
     if (options?.required) {
-      newRules.required = I18N.template(I18N.src.FormItem.oPTIO, { val1: options?.label });
+      newRules.required = I18N.template!(I18N.src.FormItem.oPTIO, { val1: options?.label });
 
       if (isWhitespace) {
         // @ts-ignore
@@ -120,10 +120,10 @@ const getPlaceholder = ({
   if (!isFalsy(metadata?.props.placeholder)) return metadata?.props.placeholder;
 
   if (componentType === 'select') {
-    return I18N.template(I18N.src.FormItem.qingXuanZeLA, { val1: labelText });
+    return I18N.template!(I18N.src.FormItem.qingXuanZeLA, { val1: labelText });
   }
 
-  return I18N.template(I18N.src.FormItem.qingShuRuLA, { val1: labelText });
+  return I18N.template!(I18N.src.FormItem.qingShuRuLA, { val1: labelText });
 };
 
 const InternalFormItem: React.FC<HooksFormItemProps> = (props) => {

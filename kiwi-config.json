@@ -1,5 +1,5 @@
 {
-  "kiwiDir": "./src/.kiwi",
+  "kiwiDir": "./src/locale",
   "srcLang": "zh-CN",
   "distLangs": ["en-US"],
   "googleApiKey": "",
@@ -16,6 +16,6 @@
   },
   "defaultTranslateKeyApi": "Pinyin",
   "importI18N": "import I18N from './i18n';",
-  "ignoreDir": ["src/.kiwi", "src/examples", ".umi", ".umi-production"],
+  "ignoreDir": ["src/locale", "src/examples", ".umi", ".umi-production"],
   "ignoreFile": []
 }

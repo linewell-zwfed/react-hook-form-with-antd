@@ -1,7 +1,7 @@
 import KiwiIntl from 'kiwi-intl';
 
-import zhCN from './.kiwi/zh-CN';
-import enUS from './.kiwi/en-US';
+import zhCN from './locale/zh-CN';
+import enUS from './locale/en-US';
 
 // NOTE: 约定从 localStorage 中去读取 siteLang
 const siteLang = localStorage.getItem('siteLang') || 'zh-CN';
